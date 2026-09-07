@@ -79,26 +79,28 @@ export default function VoicePage() {
             </Button>
           </>
         }
+        visual={
+          <div className="flex justify-center py-4 lg:justify-end">
+            <VoiceOrb size="xl" />
+          </div>
+        }
       />
 
       <Section>
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14">
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
           <Reveal>
-            <Card padding="lg" className="h-full bg-gradient-to-br from-rd-surface-2 to-rd-surface">
-              <VoiceOrb className="mx-auto mb-2" />
-              <p className="mt-2 text-[13px] font-medium uppercase tracking-[0.14em] text-rd-text-3">
-                Example briefing
-              </p>
-              <blockquote className="mt-3 text-lg font-medium leading-8 tracking-[-0.02em]">
-                “REL-1842 is in UAT. Seven open blockers remain. AUTH-441 is still
-                waiting on OPS-77. CAB is not open until the blocker register is
-                clear.”
-              </blockquote>
-              <p className="mt-6 text-sm leading-6 text-rd-text-2">
-                The same facts the gates use. Spoken, confirmed, and labelled when
-                they come from StaffLess AI.
-              </p>
-            </Card>
+            <p className="text-[13px] font-medium uppercase tracking-[0.14em] text-rd-text-3">
+              Example briefing
+            </p>
+            <blockquote className="mt-4 text-[22px] font-medium leading-8 tracking-[-0.03em] sm:text-[26px] sm:leading-9">
+              “REL-1842 is in UAT. Seven open blockers remain. AUTH-441 is still
+              waiting on OPS-77. CAB is not open until the blocker register is
+              clear.”
+            </blockquote>
+            <p className="mt-6 max-w-md text-sm leading-6 text-rd-text-2">
+              The same facts the gates use. Spoken, confirmed, and labelled when
+              they come from StaffLess AI.
+            </p>
           </Reveal>
           <div className="grid gap-4 sm:grid-cols-2">
             {items.map((item, i) => (

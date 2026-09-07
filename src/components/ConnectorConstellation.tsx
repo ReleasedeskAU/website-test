@@ -130,28 +130,29 @@ function ConnectorNode({
     >
       <div className={cn("constellation-beam", item.status === "live" ? "is-live" : "is-roadmap")} />
       <span className={cn("constellation-packet", item.status === "live" ? "is-live" : "is-roadmap")} />
+      <span
+        className={cn("constellation-packet is-second", item.status === "live" ? "is-live" : "is-roadmap")}
+      />
       <div className="constellation-sat">
-        <div className="constellation-sat-spin">
-          <div
-            className={cn(
-              "constellation-node",
-              item.status === "roadmap" && "is-roadmap",
-            )}
-          >
-            <Icon />
-          </div>
-          <span
-            className={cn(
-              "constellation-label",
-              item.status === "roadmap" && "text-rd-text-3",
-            )}
-          >
-            {item.name}
-            <span className={item.status === "live" ? "text-rd-verified" : "text-rd-text-3"}>
-              {item.status === "live" ? "Live" : "Roadmap"}
-            </span>
-          </span>
+        <div
+          className={cn(
+            "constellation-node",
+            item.status === "live" ? "is-live" : "is-roadmap",
+          )}
+        >
+          <Icon />
         </div>
+        <span
+          className={cn(
+            "constellation-label",
+            item.status === "roadmap" && "text-rd-text-3",
+          )}
+        >
+          {item.name}
+          <span className={item.status === "live" ? "text-rd-verified" : "text-rd-text-3"}>
+            {item.status === "live" ? "Live" : "Roadmap"}
+          </span>
+        </span>
       </div>
     </div>
   );
@@ -176,11 +177,11 @@ export function ConnectorConstellation() {
           return;
         }
         setPhase("arrived");
-        timers.push(window.setTimeout(() => setPhase("linked"), 480));
-        timers.push(window.setTimeout(() => setPhase("flow"), 920));
+        timers.push(window.setTimeout(() => setPhase("linked"), 360));
+        timers.push(window.setTimeout(() => setPhase("flow"), 780));
         io.disconnect();
       },
-      { threshold: 0.28 },
+      { threshold: 0.22 },
     );
 
     io.observe(el);
@@ -200,44 +201,7 @@ export function ConnectorConstellation() {
         phase === "flow" && "is-flow",
       )}
     >
-      <div className="constellation-flat md:hidden">
-        <Hub />
-        <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {connectors.map((item) => {
-            const Icon = icons[item.id] as () => ReactNode;
-            return (
-              <li
-                key={item.id}
-                className={cn(
-                  "flex min-h-11 items-center gap-2 rounded-xl border px-3 py-2",
-                  item.status === "live"
-                    ? "border-rd-verified/25 bg-rd-verified-soft/30"
-                    : "border-dashed border-rd-border bg-rd-bg/40",
-                )}
-              >
-                <span className="flex size-8 items-center justify-center rounded-lg bg-rd-surface-2 text-rd-text">
-                  <Icon />
-                </span>
-                <span className="min-w-0">
-                  <span className="block truncate text-[13px] font-medium text-rd-text">
-                    {item.name}
-                  </span>
-                  <span
-                    className={cn(
-                      "text-[10px] font-medium uppercase tracking-[0.12em]",
-                      item.status === "live" ? "text-rd-verified" : "text-rd-text-3",
-                    )}
-                  >
-                    {item.status === "live" ? "Live" : "Roadmap"}
-                  </span>
-                </span>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-
-      <div className="constellation-scene hidden md:block" aria-hidden="true">
+      <div className="constellation-scene">
         <div className="constellation-orbit">
           {connectors.map((item, i) => (
             <ConnectorNode key={item.id} item={item} index={i} />
