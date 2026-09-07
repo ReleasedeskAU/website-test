@@ -94,8 +94,14 @@ export function AskMock({ className }: { className?: string }) {
                 </tr>
               </thead>
               <tbody className="text-rd-text-2">
-                {tickets.map((row) => (
-                  <tr key={row.key} className="border-b border-rd-border last:border-0">
+                {tickets.map((row, i) => (
+                  <tr
+                    key={row.key}
+                    className={cn(
+                      "border-b border-rd-border last:border-0",
+                      i > 1 && "hidden sm:table-row",
+                    )}
+                  >
                     <td className="px-3 py-2 font-mono text-[11px] text-rd-accent-hover">
                       {row.key}
                     </td>
@@ -106,7 +112,8 @@ export function AskMock({ className }: { className?: string }) {
               </tbody>
             </table>
             <p className="border-t border-rd-border px-3 py-2 text-[11px] text-rd-text-3">
-              Showing 4 of 7 · remaining 3 are medium/low
+              <span className="sm:hidden">Showing 2 of 7 · remaining are medium/low</span>
+              <span className="hidden sm:inline">Showing 4 of 7 · remaining 3 are medium/low</span>
             </p>
           </div>
           <p className="text-[11px] leading-4 text-rd-text-3">

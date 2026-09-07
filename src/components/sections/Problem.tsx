@@ -36,7 +36,7 @@ export function Problem() {
         {pains.map((item, i) => (
           <Reveal key={item.title} delay={i * 70}>
             <Card hover className="h-full">
-              <div className="mb-4 flex size-10 items-center justify-center rounded-xl border border-rd-border bg-rd-surface-2 text-rd-accent-hover">
+              <div className="mb-4 flex size-11 items-center justify-center rounded-xl border border-rd-border bg-rd-surface-2 text-rd-accent-hover">
                 <item.icon />
               </div>
               <h3 className="text-lg font-semibold tracking-[-0.02em] text-rd-text">
