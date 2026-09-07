@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 
+/** Portrait 886×1194 clip: nebula orb on top, carousel chrome below. Crop to the orb. */
 const SRC = "/voice-section.mp4";
 
 export function VoiceOrb({
