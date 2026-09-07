@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { DemoForm } from "@/components/DemoForm";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
@@ -19,7 +20,11 @@ export function Cta() {
             <p className="mt-4 max-w-md text-base leading-7 text-rd-text-2">
               We’ll walk the lifecycle, the gates, and StaffLess AI — including
               what it will and will not answer today. Bring a real cutover if you
-              can. Plain conversation, no theatre.
+              can. Plain conversation, no theatre. You can also{" "}
+              <Link href="/demo" className="text-rd-accent-hover underline-offset-4 hover:underline">
+                open the dedicated demo page
+              </Link>
+              .
             </p>
             <ul className="mt-8 space-y-3 text-sm leading-6 text-rd-text-2">
               <li className="flex gap-2">

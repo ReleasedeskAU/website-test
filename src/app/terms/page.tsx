@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SiteShell } from "@/components/SiteShell";
 import { Container } from "@/components/ui/Container";
-import { Logo } from "@/components/ui/Logo";
 
 export const metadata: Metadata = {
   title: "Terms",
@@ -9,14 +9,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="min-h-full bg-rd-bg">
-      <header className="border-b border-rd-border">
-        <Container className="flex h-16 items-center">
-          <Link href="/">
-            <Logo />
-          </Link>
-        </Container>
-      </header>
+    <SiteShell>
       <Container className="max-w-3xl py-16">
         <p className="text-[13px] font-medium uppercase tracking-[0.16em] text-rd-accent-hover">
           Legal
@@ -30,8 +23,8 @@ export default function TermsPage() {
           </p>
           <p>
             The site is provided for informational purposes. Product capabilities
-            described on the homepage reflect current intent and honest
-            limitations (including live connectors limited to Jira and GitHub).
+            described here reflect current intent and honest limitations
+            (including live connectors limited to Jira and GitHub).
           </p>
           <p>
             <Link href="/" className="text-rd-accent-hover underline-offset-4 hover:underline">
@@ -40,6 +33,6 @@ export default function TermsPage() {
           </p>
         </div>
       </Container>
-    </div>
+    </SiteShell>
   );
 }

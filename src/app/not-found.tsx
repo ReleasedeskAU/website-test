@@ -1,18 +1,10 @@
-import Link from "next/link";
+import { SiteShell } from "@/components/SiteShell";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { Logo } from "@/components/ui/Logo";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-full flex-col bg-rd-bg">
-      <header className="border-b border-rd-border">
-        <Container className="flex h-16 items-center">
-          <Link href="/">
-            <Logo />
-          </Link>
-        </Container>
-      </header>
+    <SiteShell>
       <Container className="flex flex-1 flex-col items-start justify-center py-24">
         <p className="text-[13px] font-medium uppercase tracking-[0.16em] text-rd-accent-hover">
           404
@@ -28,6 +20,6 @@ export default function NotFound() {
           Back to homepage
         </Button>
       </Container>
-    </div>
+    </SiteShell>
   );
 }

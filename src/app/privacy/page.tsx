@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SiteShell } from "@/components/SiteShell";
 import { Container } from "@/components/ui/Container";
-import { Logo } from "@/components/ui/Logo";
 
 export const metadata: Metadata = {
   title: "Privacy",
@@ -9,14 +9,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-full bg-rd-bg">
-      <header className="border-b border-rd-border">
-        <Container className="flex h-16 items-center">
-          <Link href="/">
-            <Logo />
-          </Link>
-        </Container>
-      </header>
+    <SiteShell>
       <Container className="max-w-3xl py-16">
         <p className="text-[13px] font-medium uppercase tracking-[0.16em] text-rd-accent-hover">
           Legal
@@ -32,9 +25,9 @@ export default function PrivacyPage() {
             customer data is processed.
           </p>
           <p>
-            This site does not require an account. The demo-request form on the
-            homepage validates in the browser and does not submit to a server in
-            this version.
+            This site does not require an account. The demo-request form
+            validates in the browser and does not submit to a server in this
+            version.
           </p>
           <p>
             If you contact us by email, we will use that correspondence only to
@@ -47,6 +40,6 @@ export default function PrivacyPage() {
           </p>
         </div>
       </Container>
-    </div>
+    </SiteShell>
   );
 }

@@ -1,14 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
-
-const product = [
-  { href: "#platform", label: "Core platform" },
-  { href: "#ai", label: "StaffLess AI" },
-  { href: "#voice", label: "Voice assistant" },
-  { href: "#connectors", label: "Connected tools" },
-  { href: "#security", label: "Governance" },
-];
+import { demoHref, primaryNav } from "@/lib/nav";
 
 const legal = [
   { href: "/privacy", label: "Privacy" },
@@ -21,9 +14,9 @@ export function Footer() {
       <Container className="py-16 sm:py-20">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            <a href="#top">
+            <Link href="/">
               <Logo />
-            </a>
+            </Link>
             <p className="mt-4 max-w-sm text-sm leading-6 text-rd-text-2">
               Governed release management for teams who are done chasing status —
               with an AI that answers from verified data.
@@ -34,14 +27,14 @@ export function Footer() {
               Product
             </p>
             <ul className="mt-4 space-y-2.5">
-              {product.map((item) => (
+              {primaryNav.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-sm text-rd-text-2 transition-colors duration-200 hover:text-rd-text"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -62,12 +55,12 @@ export function Footer() {
                 </li>
               ))}
               <li>
-                <a
-                  href="#demo"
+                <Link
+                  href={demoHref}
                   className="text-sm text-rd-text-2 transition-colors duration-200 hover:text-rd-text"
                 >
                   Request a demo
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

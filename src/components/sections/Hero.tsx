@@ -25,12 +25,12 @@ export function Hero() {
               questions and get accurate, trustworthy answers instantly.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button href="#demo" size="lg" className="min-h-12 w-full sm:w-auto">
+              <Button href="/demo" size="lg" className="min-h-12 w-full sm:w-auto">
                 Request a demo
                 <IconArrowRight className="size-4" />
               </Button>
               <Button
-                href="#platform"
+                href="/platform"
                 variant="secondary"
                 size="lg"
                 className="min-h-12 w-full sm:w-auto"
