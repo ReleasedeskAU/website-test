@@ -72,7 +72,16 @@ html {
   .depth-plate,
   .orbit-ring,
   .card-elevate:hover,
-  .btn-primary:hover {
+  .btn-primary:hover,
+  .voice-stage.is-live .voice-orb-core,
+  .voice-stage.is-live .voice-orb-glow,
+  .voice-stage.is-live .voice-ring,
+  .voice-stage.is-live .voice-mic,
+  .ai-mark.is-live .ai-mark-cluster,
+  .ai-mark-cluster,
+  .verified-seal,
+  .verified-seal-face,
+  .verified-seal-plate {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
@@ -212,6 +221,208 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.voice-stage {
+  position: relative;
+  width: 176px;
+  height: 160px;
+  perspective: 720px;
+  transform-style: preserve-3d;
+}
+
+.voice-orb {
+  position: absolute;
+  inset: 32px 40px;
+  transform-style: preserve-3d;
+}
+
+.voice-orb-core {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 32% 28%, #e8ecff 0%, #8b98ff 28%, #5b6eff 58%, #2a3480 100%);
+  box-shadow:
+    inset 0 1px 1px rgb(255 255 255 / 0.45),
+    0 12px 28px rgb(91 110 255 / 0.28);
+}
+
+.voice-orb-glow {
+  position: absolute;
+  inset: -16px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgb(91 110 255 / 0.35) 0%, transparent 68%);
+  filter: blur(6px);
+}
+
+.voice-orb-spec {
+  position: absolute;
+  left: 22%;
+  top: 16%;
+  width: 28%;
+  height: 18%;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.38);
+  filter: blur(1px);
+  transform: rotate(-18deg);
+}
+
+.voice-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 96px;
+  height: 96px;
+  margin: -48px 0 0 -48px;
+  border-radius: 9999px;
+  border: 1px solid rgb(91 110 255 / 0.28);
+  transform: rotateX(62deg);
+}
+
+.voice-mic {
+  position: absolute;
+  top: 56px;
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 8px 12px rgb(0 0 0 / 0.35));
+}
+
+.voice-mic-left {
+  left: 8px;
+  transform: rotateY(28deg) rotateZ(-12deg) translateZ(12px);
+}
+
+.voice-mic-right {
+  right: 8px;
+  transform: rotateY(-28deg) rotateZ(12deg) translateZ(12px);
+}
+
+.voice-stage.is-live .voice-orb-core {
+  animation: voice-pulse 2.4s ease-in-out infinite;
+}
+
+.voice-stage.is-live .voice-orb-glow {
+  animation: voice-glow 2.4s ease-in-out infinite;
+}
+
+.voice-stage.is-live .voice-ring-a {
+  animation: voice-ripple 2.8s ease-out infinite;
+}
+
+.voice-stage.is-live .voice-ring-b {
+  animation: voice-ripple 2.8s ease-out 1.1s infinite;
+}
+
+.voice-stage.is-live .voice-mic-left {
+  animation: voice-mic-float 3.6s ease-in-out infinite;
+}
+
+.voice-stage.is-live .voice-mic-right {
+  animation: voice-mic-float 3.6s ease-in-out 0.4s infinite reverse;
+}
+
+@keyframes voice-pulse {
+  50% {
+    transform: scale(1.045);
+  }
+}
+
+@keyframes voice-glow {
+  50% {
+    opacity: 0.72;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes voice-ripple {
+  0% {
+    opacity: 0.45;
+    transform: rotateX(62deg) scale(0.92);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateX(62deg) scale(1.55);
+  }
+}
+
+@keyframes voice-mic-float {
+  50% {
+    translate: 0 -4px;
+  }
+}
+
+.ai-mark {
+  width: 168px;
+  height: 160px;
+  perspective: 800px;
+}
+
+.ai-mark-cluster {
+  height: 100%;
+  transform: rotateX(18deg) rotateY(-22deg);
+  transform-style: preserve-3d;
+}
+
+.ai-mark.is-live .ai-mark-cluster {
+  animation: ai-cluster-sway 8s ease-in-out infinite;
+}
+
+.ai-mark-link {
+  stroke: rgb(123 140 255 / 0.35);
+  stroke-width: 1;
+}
+
+.ai-mark-node circle:last-child {
+  filter: drop-shadow(0 0 6px rgb(91 110 255 / 0.45));
+}
+
+@keyframes ai-cluster-sway {
+  50% {
+    transform: rotateX(14deg) rotateY(16deg);
+  }
+}
+
+.verified-seal {
+  position: relative;
+  width: max-content;
+  perspective: 600px;
+  transform-style: preserve-3d;
+}
+
+.verified-seal-plate {
+  position: absolute;
+  inset: 3px -3px -3px 3px;
+  border-radius: 9999px;
+  background: rgb(12 24 22 / 0.7);
+  transform: translateZ(-8px);
+}
+
+.verified-seal-face {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 9999px;
+  border: 1px solid rgb(42 212 184 / 0.35);
+  background: rgb(42 212 184 / 0.14);
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rd-verified);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.12),
+    0 10px 22px rgb(0 0 0 / 0.32);
+  transform: rotateY(-12deg) rotateX(8deg);
+}
+
+.verified-seal-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--rd-verified);
+  box-shadow: 0 0 8px rgb(42 212 184 / 0.7);
 }
 
 @media (max-width: 767px) {

@@ -1,7 +1,8 @@
 import { Card } from "@/components/ui/Card";
-import { IconBrief, IconConfirm, IconMic, IconNav, IconShare } from "@/components/ui/Icons";
+import { IconBrief, IconConfirm, IconNav, IconShare } from "@/components/ui/Icons";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
+import { VoiceOrb } from "@/components/ui/VoiceOrb";
 
 const items = [
   {
@@ -37,10 +38,8 @@ export function Voice() {
       <div className="grid gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
         <Reveal className="min-w-0">
           <Card padding="lg" className="h-full bg-gradient-to-br from-rd-surface-2 to-rd-surface">
-            <div className="flex size-12 items-center justify-center rounded-2xl border border-rd-accent/25 bg-rd-accent-soft text-rd-accent-hover">
-              <IconMic className="size-6" />
-            </div>
-            <p className="mt-6 text-[13px] font-medium uppercase tracking-[0.14em] text-rd-text-3">
+            <VoiceOrb className="mx-auto mb-2" />
+            <p className="mt-2 text-[13px] font-medium uppercase tracking-[0.14em] text-rd-text-3">
               Example briefing
             </p>
             <blockquote className="mt-3 text-lg font-medium leading-8 tracking-[-0.02em] text-rd-text">
