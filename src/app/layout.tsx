@@ -40,9 +40,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full overflow-x-clip scroll-smooth antialiased`}
     >
-      <body className="min-h-full bg-rd-bg font-sans text-rd-text">
+      <body className="min-h-full overflow-x-clip bg-rd-bg font-sans text-rd-text">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-rd-accent focus:px-3 focus:py-2 focus:text-sm focus:text-white"

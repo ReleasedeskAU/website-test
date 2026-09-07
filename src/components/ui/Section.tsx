@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
@@ -11,15 +12,17 @@ export function Section({
   className,
   tone = "default",
   align = "left",
+  featured = false,
 }: {
   id?: string;
   eyebrow?: string;
   title?: string;
   subtitle?: string;
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   tone?: "default" | "ai" | "muted";
   align?: "left" | "center";
+  featured?: boolean;
 }) {
   return (
     <section
@@ -33,14 +36,26 @@ export function Section({
     >
       <Container>
         {(eyebrow || title || subtitle) && (
-          <Reveal className={cn("mb-12 sm:mb-16", align === "center" && "text-center mx-auto max-w-3xl")}>
+          <Reveal
+            className={cn(
+              "mb-12 sm:mb-16",
+              align === "center" && "mx-auto max-w-3xl text-center",
+            )}
+          >
             {eyebrow ? (
               <p className="mb-3 text-[13px] font-medium uppercase tracking-[0.16em] text-rd-accent-hover">
                 {eyebrow}
               </p>
             ) : null}
             {title ? (
-              <h2 className="text-[28px] font-semibold leading-tight tracking-[-0.03em] text-rd-text sm:text-4xl">
+              <h2
+                className={cn(
+                  "font-semibold leading-tight tracking-[-0.03em] text-rd-text",
+                  featured
+                    ? "text-[32px] sm:text-[42px] lg:text-5xl"
+                    : "text-[28px] sm:text-4xl",
+                )}
+              >
                 {title}
               </h2>
             ) : null}

@@ -35,7 +35,7 @@ const examples: Example[] = [
             {[
               ["41", "Open"],
               ["12", "Blocked"],
-              ["7", "Blocking this release"],
+              ["7", "Blocking"],
             ].map(([n, l]) => (
               <div
                 key={l}
@@ -147,7 +147,7 @@ export function ChatMock() {
   const active = examples.find((e) => e.id === activeId) ?? examples[0];
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-rd-border-strong bg-rd-surface shadow-rd-lg">
+    <div className="min-w-0 overflow-hidden rounded-2xl border border-rd-border-strong bg-rd-surface shadow-rd-lg">
       <div className="flex items-center justify-between gap-3 border-b border-rd-border bg-rd-surface-2/80 px-4 py-3">
         <div className="flex items-center gap-2">
           <span className="flex size-7 items-center justify-center rounded-lg bg-rd-accent-soft text-[11px] font-semibold text-rd-accent-hover">
@@ -163,7 +163,7 @@ export function ChatMock() {
         </Badge>
       </div>
 
-      <div className="min-h-[340px] space-y-4 bg-rd-bg/35 px-4 py-5 sm:min-h-[380px]">
+      <div className="min-h-[280px] space-y-4 bg-rd-bg/35 px-3 py-4 sm:min-h-[380px] sm:px-4 sm:py-5">
         {active.messages.map((msg, i) =>
           msg.role === "user" ? (
             <div key={i} className="flex justify-end">
@@ -198,7 +198,7 @@ export function ChatMock() {
               type="button"
               onClick={() => setActiveId(ex.id)}
               className={cn(
-                "rounded-full border px-3 py-1.5 text-left text-[12px] leading-4 transition-colors duration-200",
+                "min-h-11 w-full rounded-full border px-3 py-2 text-left text-[12px] leading-4 transition-colors duration-200 sm:w-auto",
                 ex.id === activeId
                   ? "border-rd-accent/40 bg-rd-accent-soft text-rd-text"
                   : "border-rd-border bg-rd-bg/40 text-rd-text-2 hover:border-rd-border-strong hover:text-rd-text",
@@ -209,10 +209,10 @@ export function ChatMock() {
           ))}
         </div>
         <div className="flex items-center gap-2">
-          <div className="flex h-10 flex-1 items-center rounded-xl border border-rd-border bg-rd-bg/70 px-3 text-[13px] text-rd-text-3">
-            {active.prompt}
+          <div className="flex h-11 min-h-11 min-w-0 flex-1 items-center overflow-hidden rounded-xl border border-rd-border bg-rd-bg/70 px-3 text-[13px] text-rd-text-3">
+            <span className="truncate">{active.prompt}</span>
           </div>
-          <span className="inline-flex size-10 items-center justify-center rounded-xl bg-rd-accent text-white">
+          <span className="inline-flex size-11 min-h-11 min-w-11 items-center justify-center rounded-xl bg-rd-accent text-white">
             <IconSend className="size-4" />
           </span>
         </div>

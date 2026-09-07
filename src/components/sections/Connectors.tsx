@@ -37,7 +37,7 @@ export function Connectors() {
       title="Jira and GitHub, live today. The rest is on the roadmap."
       subtitle="Connectors are a product, not a catalogue page. Release Desk syncs the tools release teams already run — and we will not pretend a dozen others are shipping when they are not."
     >
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <Reveal>
           <Card hover className="h-full">
             <div className="flex items-start justify-between gap-3">

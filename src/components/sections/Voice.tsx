@@ -35,7 +35,7 @@ export function Voice() {
       subtitle="Release managers live in meetings, war rooms, and CAB. Voice is a productivity layer: navigate, get a spoken brief, and take a small set of confirmed actions — not a novelty microphone on the homepage."
     >
       <div className="grid gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-        <Reveal>
+        <Reveal className="min-w-0">
           <Card padding="lg" className="h-full bg-gradient-to-br from-rd-surface-2 to-rd-surface">
             <div className="flex size-12 items-center justify-center rounded-2xl border border-rd-accent/25 bg-rd-accent-soft text-rd-accent-hover">
               <IconMic className="size-6" />
@@ -54,7 +54,7 @@ export function Voice() {
             </p>
           </Card>
         </Reveal>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid min-w-0 gap-4 sm:grid-cols-2">
           {items.map((item, i) => (
             <Reveal key={item.title} delay={i * 50}>
               <Card hover className="h-full">

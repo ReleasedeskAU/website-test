@@ -7,7 +7,7 @@ type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-rd-accent text-white shadow-rd-sm hover:bg-rd-accent-hover hover:shadow-rd",
+    "btn-primary bg-rd-accent text-white shadow-rd-sm hover:bg-rd-accent-hover",
   secondary:
     "bg-rd-surface-2 text-rd-text border border-rd-border-strong hover:border-white/20 hover:bg-rd-surface-3",
   ghost: "text-rd-text-2 hover:text-rd-text hover:bg-white/5",
@@ -46,7 +46,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center font-medium tracking-[-0.01em] transition-all duration-200 ease-out",
+    "inline-flex items-center justify-center font-medium tracking-[-0.01em] transition-[color,background-color,box-shadow,transform,border-color] duration-200 ease-out",
     "disabled:pointer-events-none disabled:opacity-50",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--rd-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-rd-bg",
     variants[variant],

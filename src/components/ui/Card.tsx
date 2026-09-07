@@ -15,15 +15,14 @@ export function Card({
     none: "",
     sm: "p-4",
     md: "p-6",
-    lg: "p-8",
+    lg: "p-6 sm:p-8",
   };
 
   return (
     <div
       className={cn(
         "rounded-2xl border border-rd-border bg-rd-surface/80 shadow-rd backdrop-blur-sm",
-        hover &&
-          "transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-rd-border-strong hover:shadow-rd-lg",
+        hover && "card-elevate",
         paddings[padding],
         className,
       )}

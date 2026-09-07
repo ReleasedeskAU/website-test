@@ -1,5 +1,6 @@
 import { ChatMock } from "@/components/ChatMock";
 import { Card } from "@/components/ui/Card";
+import { DepthFrame } from "@/components/ui/DepthFrame";
 import {
   IconChat,
   IconCheck,
@@ -46,15 +47,17 @@ export function AiEngine() {
     <Section
       id="ai"
       tone="ai"
+      featured
+      className="border-y border-rd-border"
       eyebrow="StaffLess AI · Flagship"
       title="Most release chatbots guess. This one doesn’t."
       subtitle="Generic AI chat over your tools samples a few tickets and sounds sure of itself. StaffLess AI is built the other way around: exact counts from verified data, direct lookups with relationships, and a label on every answer. If it can’t answer, it says so."
     >
       <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14">
-        <div className="space-y-4">
+        <div className="min-w-0 space-y-4">
           {capabilities.map((item, i) => (
             <Reveal key={item.title} delay={i * 60}>
-              <Card>
+              <Card hover>
                 <div className="flex gap-4">
                   <div className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-xl border border-rd-verified/20 bg-rd-verified-soft text-rd-verified">
                     <item.icon />
@@ -87,8 +90,10 @@ export function AiEngine() {
             </Reveal>
           ))}
         </div>
-        <Reveal delay={80}>
-          <ChatMock />
+        <Reveal delay={80} className="min-w-0">
+          <DepthFrame>
+            <ChatMock />
+          </DepthFrame>
           <p className="mt-4 text-[13px] leading-5 text-rd-text-3">
             Answers come from indexed, synced data — not a live query beyond that
             sync. Example questions above are representative of what StaffLess AI

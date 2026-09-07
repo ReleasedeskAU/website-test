@@ -13,7 +13,7 @@ export function AskMock({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-2xl border border-rd-border-strong bg-rd-surface shadow-rd-lg",
+        "relative min-w-0 overflow-hidden rounded-2xl border border-rd-border-strong bg-rd-surface shadow-rd-lg",
         className,
       )}
     >
@@ -60,7 +60,9 @@ export function AskMock({ className }: { className?: string }) {
           <span className="text-[13px] font-medium text-rd-text">StaffLess AI</span>
           <Badge variant="accent">Ask</Badge>
         </div>
-        <p className="text-[11px] text-rd-text-3">Indexed Jira · synced 12 min ago</p>
+        <p className="hidden truncate text-[11px] text-rd-text-3 sm:block">
+          Indexed Jira · synced 12 min ago
+        </p>
       </div>
 
       <div className="space-y-4 bg-rd-bg/40 px-4 py-5 sm:px-5">
@@ -94,8 +96,14 @@ export function AskMock({ className }: { className?: string }) {
                 </tr>
               </thead>
               <tbody className="text-rd-text-2">
-                {tickets.map((row) => (
-                  <tr key={row.key} className="border-b border-rd-border last:border-0">
+                {tickets.map((row, i) => (
+                  <tr
+                    key={row.key}
+                    className={cn(
+                      "border-b border-rd-border last:border-0",
+                      i > 1 && "hidden sm:table-row",
+                    )}
+                  >
                     <td className="px-3 py-2 font-mono text-[11px] text-rd-accent-hover">
                       {row.key}
                     </td>
@@ -106,7 +114,8 @@ export function AskMock({ className }: { className?: string }) {
               </tbody>
             </table>
             <p className="border-t border-rd-border px-3 py-2 text-[11px] text-rd-text-3">
-              Showing 4 of 7 · remaining 3 are medium/low
+              <span className="sm:hidden">Showing 2 of 7 · remaining are medium/low</span>
+              <span className="hidden sm:inline">Showing 4 of 7 · remaining 3 are medium/low</span>
             </p>
           </div>
           <p className="text-[11px] leading-4 text-rd-text-3">
@@ -116,10 +125,10 @@ export function AskMock({ className }: { className?: string }) {
       </div>
 
       <div className="flex items-center gap-2 border-t border-rd-border bg-rd-surface-2/60 px-3 py-3">
-        <div className="flex h-10 flex-1 items-center rounded-xl border border-rd-border bg-rd-bg/70 px-3 text-[13px] text-rd-text-3">
+        <div className="flex h-11 min-h-11 flex-1 items-center rounded-xl border border-rd-border bg-rd-bg/70 px-3 text-[13px] text-rd-text-3">
           Ask about this release…
         </div>
-        <span className="inline-flex size-10 items-center justify-center rounded-xl bg-rd-accent text-white">
+        <span className="inline-flex size-11 min-h-11 min-w-11 items-center justify-center rounded-xl bg-rd-accent text-white">
           <IconSend className="size-4" />
         </span>
       </div>
