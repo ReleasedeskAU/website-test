@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
+import { ConnectorConstellation } from "@/components/ConnectorConstellation";
 
 function JiraMark() {
   return (
@@ -35,9 +36,13 @@ export function Connectors() {
       tone="muted"
       eyebrow="Connected tools"
       title="Jira and GitHub, live today. The rest is on the roadmap."
-      subtitle="Connectors are a product, not a catalogue page. Release Desk syncs the tools release teams already run — and we will not pretend a dozen others are shipping when they are not."
+      subtitle="Connectors are a product, not a catalogue page. Release Desk syncs Jira and GitHub today. Teams, Outlook, Azure, and Slack are on the roadmap — we will not pretend they are live."
     >
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <Reveal>
+        <ConnectorConstellation />
+      </Reveal>
+
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <Reveal>
           <Card hover className="h-full">
             <div className="flex items-start justify-between gap-3">
