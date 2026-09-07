@@ -50,7 +50,7 @@ export function Governance() {
           <p className="text-sm font-medium">Role-based access</p>
         </div>
       </Reveal>
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {roles.map((role, i) => (
           <Reveal key={role.name} delay={i * 60}>
             <Card hover className="h-full">
@@ -62,7 +62,7 @@ export function Governance() {
           </Reveal>
         ))}
       </div>
-      <div className="mt-4 grid gap-4 md:grid-cols-3">
+      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {extras.map((item, i) => (
           <Reveal key={item.title} delay={i * 60}>
             <Card hover className="h-full">

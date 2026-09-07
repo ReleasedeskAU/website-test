@@ -61,43 +61,67 @@ export function Platform() {
       subtitle="Releases move through a defined lifecycle. Gates are automated. Fields lock when they should. Supporting registers sit next to the work — not in a side spreadsheet."
     >
       <Reveal>
-        <div>
-          <ol className="flex flex-wrap items-center gap-y-2">
-            {stages.map((stage, i) => (
-              <li key={stage.name} className="flex items-center">
-                <div
+        <ol className="grid grid-cols-2 gap-2 sm:hidden">
+          {stages.map((stage) => (
+            <li
+              key={stage.name}
+              className={cn(
+                "flex min-h-11 items-center gap-2 rounded-full border px-3 text-[12px] font-medium",
+                stage.state === "done" &&
+                  "border-rd-verified/25 bg-rd-verified-soft text-rd-verified",
+                stage.state === "current" &&
+                  "border-rd-accent/40 bg-rd-accent-soft text-rd-accent-hover shadow-rd-sm",
+                stage.state === "next" &&
+                  "border-rd-border bg-rd-surface text-rd-text-3",
+              )}
+            >
+              <span
+                className={cn(
+                  "size-1.5 shrink-0 rounded-full",
+                  stage.state === "done" && "bg-rd-verified",
+                  stage.state === "current" && "bg-rd-accent",
+                  stage.state === "next" && "bg-rd-text-3",
+                )}
+              />
+              {stage.name}
+            </li>
+          ))}
+        </ol>
+        <ol className="hidden flex-wrap items-center gap-y-2 sm:flex">
+          {stages.map((stage, i) => (
+            <li key={stage.name} className="flex items-center">
+              <div
+                className={cn(
+                  "flex items-center gap-2 rounded-full border px-3 py-1.5 text-[12px] font-medium",
+                  stage.state === "done" &&
+                    "border-rd-verified/25 bg-rd-verified-soft text-rd-verified",
+                  stage.state === "current" &&
+                    "border-rd-accent/40 bg-rd-accent-soft text-rd-accent-hover shadow-rd-sm",
+                  stage.state === "next" &&
+                    "border-rd-border bg-rd-surface text-rd-text-3",
+                )}
+              >
+                <span
                   className={cn(
-                    "flex items-center gap-2 rounded-full border px-3 py-1.5 text-[12px] font-medium",
-                    stage.state === "done" &&
-                      "border-rd-verified/25 bg-rd-verified-soft text-rd-verified",
-                    stage.state === "current" &&
-                      "border-rd-accent/40 bg-rd-accent-soft text-rd-accent-hover shadow-rd-sm",
-                    stage.state === "next" &&
-                      "border-rd-border bg-rd-surface text-rd-text-3",
+                    "size-1.5 rounded-full",
+                    stage.state === "done" && "bg-rd-verified",
+                    stage.state === "current" && "bg-rd-accent",
+                    stage.state === "next" && "bg-rd-text-3",
                   )}
-                >
-                  <span
-                    className={cn(
-                      "size-1.5 rounded-full",
-                      stage.state === "done" && "bg-rd-verified",
-                      stage.state === "current" && "bg-rd-accent",
-                      stage.state === "next" && "bg-rd-text-3",
-                    )}
-                  />
-                  {stage.name}
-                </div>
-                {i < stages.length - 1 ? (
-                  <span
-                    className={cn(
-                      "mx-1.5 h-px w-3 sm:w-6",
-                      i < 3 ? "bg-rd-verified/40" : "bg-rd-border-strong",
-                    )}
-                  />
-                ) : null}
-              </li>
-            ))}
-          </ol>
-        </div>
+                />
+                {stage.name}
+              </div>
+              {i < stages.length - 1 ? (
+                <span
+                  className={cn(
+                    "mx-1.5 h-px w-3 sm:w-5 lg:w-6",
+                    i < 3 ? "bg-rd-verified/40" : "bg-rd-border-strong",
+                  )}
+                />
+              ) : null}
+            </li>
+          ))}
+        </ol>
         <p className="mt-3 text-[13px] text-rd-text-2">
           Example path for REL-1842 — currently in UAT, waiting on remaining blockers
           before CAB.

@@ -141,7 +141,7 @@ export function DemoForm() {
                 setValues((v) => ({ ...v, [field.name]: ev.target.value }))
               }
               className={cn(
-                "h-11 w-full rounded-xl border bg-rd-bg/60 px-3 text-sm text-rd-text outline-none transition-colors duration-200 placeholder:text-rd-text-3",
+                "h-11 min-h-11 w-full rounded-xl border bg-rd-bg/60 px-3 text-sm text-rd-text outline-none transition-colors duration-200 placeholder:text-rd-text-3",
                 "focus:border-rd-accent/50 focus:ring-2 focus:ring-rd-accent/20",
                 errors[field.name] ? "border-rd-danger/60" : "border-rd-border",
               )}
@@ -168,7 +168,7 @@ export function DemoForm() {
         />
       </label>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <Button type="submit" size="lg" disabled={status === "submitting"}>
+        <Button type="submit" size="lg" className="min-h-12 w-full sm:w-auto" disabled={status === "submitting"}>
           {status === "submitting" ? "Sending…" : "Request a demo"}
         </Button>
         <p className="text-[12px] leading-5 text-rd-text-3">

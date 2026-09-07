@@ -58,7 +58,7 @@ export function Nav() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-lg px-3 py-2 text-sm text-rd-text-2 transition-colors duration-200 hover:bg-white/5 hover:text-rd-text"
+              className="flex min-h-10 items-center rounded-lg px-3 py-2 text-sm text-rd-text-2 transition-colors duration-200 hover:bg-white/5 hover:text-rd-text"
             >
               {link.label}
             </a>
@@ -66,14 +66,14 @@ export function Nav() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="#demo" size="sm">
+          <Button href="#demo" size="md" className="min-h-10">
             Request a demo
           </Button>
         </div>
 
         <button
           type="button"
-          className="relative z-10 inline-flex size-10 items-center justify-center rounded-lg text-rd-text-2 transition-colors hover:bg-white/5 hover:text-rd-text lg:hidden"
+          className="relative z-10 inline-flex size-11 items-center justify-center rounded-lg text-rd-text-2 transition-colors hover:bg-white/5 hover:text-rd-text lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -94,12 +94,12 @@ export function Nav() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="rounded-xl px-3 py-3 text-[15px] text-rd-text-2 transition-colors hover:bg-white/5 hover:text-rd-text"
+              className="flex min-h-11 items-center rounded-xl px-3 py-3 text-[15px] text-rd-text-2 transition-colors hover:bg-white/5 hover:text-rd-text"
             >
               {link.label}
             </a>
           ))}
-          <Button href="#demo" className="mt-2 w-full" onClick={() => setOpen(false)}>
+          <Button href="#demo" size="lg" className="mt-2 min-h-12 w-full" onClick={() => setOpen(false)}>
             Request a demo
           </Button>
         </nav>

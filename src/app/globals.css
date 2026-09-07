@@ -22,8 +22,14 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --shadow-rd-sm: 0 1px 2px rgb(0 0 0 / 0.28);
-  --shadow-rd: 0 8px 24px rgb(0 0 0 / 0.32), 0 0 0 1px rgb(255 255 255 / 0.04);
-  --shadow-rd-lg: 0 24px 48px rgb(0 0 0 / 0.4), 0 0 0 1px rgb(255 255 255 / 0.05);
+  --shadow-rd:
+    0 1px 0 rgb(255 255 255 / 0.04) inset,
+    0 8px 24px rgb(0 0 0 / 0.32),
+    0 0 0 1px rgb(255 255 255 / 0.04);
+  --shadow-rd-lg:
+    0 1px 0 rgb(255 255 255 / 0.05) inset,
+    0 18px 40px rgb(0 0 0 / 0.42),
+    0 0 0 1px rgb(255 255 255 / 0.06);
   --shadow-rd-glow: 0 0 80px rgb(91 110 255 / 0.18);
 }
 
@@ -52,6 +58,7 @@
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -59,9 +66,16 @@ html {
     scroll-behavior: auto;
   }
 
-  .reveal {
+  .reveal,
+  .reveal-in,
+  .depth-stage,
+  .depth-plate,
+  .orbit-ring,
+  .card-elevate:hover,
+  .btn-primary:hover {
     opacity: 1 !important;
     transform: none !important;
+    animation: none !important;
     transition: none !important;
   }
 }
@@ -69,6 +83,7 @@ html {
 body {
   background: var(--rd-bg);
   color: var(--rd-text);
+  overflow-x: clip;
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   font-feature-settings: "ss01" on, "cv11" on;
 }
@@ -85,10 +100,10 @@ body {
 
 .reveal {
   opacity: 0;
-  transform: translateY(12px);
+  transform: translate3d(0, 16px, 0);
   transition:
-    opacity 220ms ease,
-    transform 220ms ease;
+    opacity 280ms ease-out,
+    transform 280ms ease-out;
 }
 
 .reveal-in {
@@ -115,4 +130,99 @@ body {
   background:
     radial-gradient(ellipse 70% 50% at 50% 0%, rgb(42 212 184 / 0.1), transparent 55%),
     radial-gradient(ellipse 50% 40% at 80% 80%, rgb(91 110 255 / 0.1), transparent 50%);
+}
+
+.depth-stage {
+  transform: rotateX(7deg) rotateY(-8deg);
+  transform-style: preserve-3d;
+  transition: transform 280ms ease-out;
+}
+
+.depth-plate {
+  transform: rotateX(7deg) rotateY(-8deg) translateZ(-28px);
+  transform-style: preserve-3d;
+}
+
+.depth-plate-mid {
+  transform: rotateX(7deg) rotateY(-8deg) translateZ(-14px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .depth-stage:hover:not(.depth-stage-live) {
+    transform: rotateX(2deg) rotateY(-3deg) translateY(-4px);
+  }
+
+  .card-elevate {
+    transition:
+      transform 200ms ease-out,
+      box-shadow 200ms ease-out,
+      border-color 200ms ease-out;
+  }
+
+  .card-elevate:hover {
+    transform: translateY(-4px);
+    border-color: var(--rd-border-strong);
+    box-shadow:
+      0 1px 0 rgb(255 255 255 / 0.06) inset,
+      0 12px 28px rgb(0 0 0 / 0.38),
+      0 28px 56px rgb(0 0 0 / 0.22);
+  }
+
+  .btn-primary {
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.22),
+      0 8px 18px rgb(91 110 255 / 0.28);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.26),
+      0 12px 24px rgb(91 110 255 / 0.34);
+  }
+
+  .btn-primary:active {
+    transform: none;
+  }
+}
+
+.orbit-ring {
+  position: absolute;
+  border-radius: 9999px;
+  border: 1px solid rgb(91 110 255 / 0.16);
+  pointer-events: none;
+}
+
+.orbit-ring-a {
+  inset: -18px -8px auto auto;
+  width: 140px;
+  height: 140px;
+  animation: orbit-spin 28s linear infinite;
+}
+
+.orbit-ring-b {
+  inset: auto auto -28px -16px;
+  width: 180px;
+  height: 180px;
+  border-color: rgb(42 212 184 / 0.12);
+  animation: orbit-spin 36s linear infinite reverse;
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 767px) {
+  .depth-plate,
+  .orbit-ring {
+    display: none;
+  }
+
+  .depth-stage,
+  .depth-plate,
+  .depth-plate-mid {
+    transform: none;
+  }
 }

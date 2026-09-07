@@ -13,7 +13,7 @@ export function AskMock({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-2xl border border-rd-border-strong bg-rd-surface shadow-rd-lg",
+        "relative min-w-0 overflow-hidden rounded-2xl border border-rd-border-strong bg-rd-surface shadow-rd-lg",
         className,
       )}
     >
@@ -60,7 +60,9 @@ export function AskMock({ className }: { className?: string }) {
           <span className="text-[13px] font-medium text-rd-text">StaffLess AI</span>
           <Badge variant="accent">Ask</Badge>
         </div>
-        <p className="text-[11px] text-rd-text-3">Indexed Jira · synced 12 min ago</p>
+        <p className="hidden truncate text-[11px] text-rd-text-3 sm:block">
+          Indexed Jira · synced 12 min ago
+        </p>
       </div>
 
       <div className="space-y-4 bg-rd-bg/40 px-4 py-5 sm:px-5">
@@ -123,10 +125,10 @@ export function AskMock({ className }: { className?: string }) {
       </div>
 
       <div className="flex items-center gap-2 border-t border-rd-border bg-rd-surface-2/60 px-3 py-3">
-        <div className="flex h-10 flex-1 items-center rounded-xl border border-rd-border bg-rd-bg/70 px-3 text-[13px] text-rd-text-3">
+        <div className="flex h-11 min-h-11 flex-1 items-center rounded-xl border border-rd-border bg-rd-bg/70 px-3 text-[13px] text-rd-text-3">
           Ask about this release…
         </div>
-        <span className="inline-flex size-10 items-center justify-center rounded-xl bg-rd-accent text-white">
+        <span className="inline-flex size-11 min-h-11 min-w-11 items-center justify-center rounded-xl bg-rd-accent text-white">
           <IconSend className="size-4" />
         </span>
       </div>

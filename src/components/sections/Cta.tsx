@@ -9,7 +9,7 @@ export function Cta() {
       <div className="pointer-events-none absolute inset-0 bg-hero-glow opacity-70" />
       <Container className="relative">
         <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
-          <Reveal>
+          <Reveal className="min-w-0">
             <p className="mb-3 text-[13px] font-medium uppercase tracking-[0.16em] text-rd-accent-hover">
               Request a demo
             </p>
@@ -36,7 +36,7 @@ export function Cta() {
               </li>
             </ul>
           </Reveal>
-          <Reveal delay={80}>
+          <Reveal delay={80} className="min-w-0">
             <Card padding="lg">
               <DemoForm />
             </Card>

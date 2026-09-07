@@ -32,7 +32,7 @@ export function Problem() {
       title="You can’t govern what you can’t see clearly."
       subtitle="Most release programs still run on a patchwork of trackers, threads, and hallway updates. The work is real. The picture of it is not."
     >
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {pains.map((item, i) => (
           <Reveal key={item.title} delay={i * 70}>
             <Card hover className="h-full">
