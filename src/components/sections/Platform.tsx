@@ -61,8 +61,8 @@ export function Platform() {
       subtitle="Releases move through a defined lifecycle. Gates are automated. Fields lock when they should. Supporting registers sit next to the work — not in a side spreadsheet."
     >
       <Reveal>
-        <div className="overflow-x-auto pb-2">
-          <ol className="flex min-w-max items-center gap-0">
+        <div>
+          <ol className="flex flex-wrap items-center gap-y-2">
             {stages.map((stage, i) => (
               <li key={stage.name} className="flex items-center">
                 <div
@@ -89,7 +89,7 @@ export function Platform() {
                 {i < stages.length - 1 ? (
                   <span
                     className={cn(
-                      "mx-1.5 h-px w-4 sm:w-6",
+                      "mx-1.5 h-px w-3 sm:w-6",
                       i < 3 ? "bg-rd-verified/40" : "bg-rd-border-strong",
                     )}
                   />
@@ -98,7 +98,7 @@ export function Platform() {
             ))}
           </ol>
         </div>
-        <p className="mt-3 text-[13px] text-rd-text-3">
+        <p className="mt-3 text-[13px] text-rd-text-2">
           Example path for REL-1842 — currently in UAT, waiting on remaining blockers
           before CAB.
         </p>
@@ -127,7 +127,7 @@ export function Platform() {
             The operational record that usually fragments across tools is modelled
             beside the release, so gates and StaffLess AI can see the same facts.
           </p>
-          <ul className="mt-6 flex flex-wrap gap-2">
+          <ul className="mt-6 flex flex-wrap gap-3">
             {registers.map((name) => (
               <li
                 key={name}

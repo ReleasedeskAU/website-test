@@ -18,10 +18,12 @@ const legal = [
 export function Footer() {
   return (
     <footer className="border-t border-rd-border bg-rd-bg-elevated/80">
-      <Container className="py-12 sm:py-16">
+      <Container className="py-16 sm:py-20">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            <Logo />
+            <a href="#top">
+              <Logo />
+            </a>
             <p className="mt-4 max-w-sm text-sm leading-6 text-rd-text-2">
               Governed release management for teams who are done chasing status —
               with an AI that answers from verified data.

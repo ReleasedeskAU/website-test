@@ -46,6 +46,8 @@ export function AiEngine() {
     <Section
       id="ai"
       tone="ai"
+      featured
+      className="border-y border-rd-border"
       eyebrow="StaffLess AI · Flagship"
       title="Most release chatbots guess. This one doesn’t."
       subtitle="Generic AI chat over your tools samples a few tickets and sounds sure of itself. StaffLess AI is built the other way around: exact counts from verified data, direct lookups with relationships, and a label on every answer. If it can’t answer, it says so."
