@@ -84,7 +84,10 @@ html {
   .verified-seal-plate,
   .constellation-packet,
   .constellation-node,
-  .constellation-beam {
+  .constellation-beam,
+  .lifecycle-chip,
+  .lifecycle-link,
+  .lifecycle-caption {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
@@ -121,6 +124,56 @@ body {
 .reveal-in {
   opacity: 1;
   transform: none;
+}
+
+.lifecycle {
+  overflow-x: clip;
+}
+
+.lifecycle-chip {
+  opacity: 0;
+  transform: translate3d(0, 8px, 0) scale(0.96);
+}
+
+.lifecycle-link {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.lifecycle-caption {
+  opacity: 0;
+}
+
+.lifecycle.is-in .lifecycle-chip {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 280ms ease-out,
+    transform 280ms ease-out;
+  transition-delay: calc(var(--i) * 90ms);
+}
+
+.lifecycle.is-in .lifecycle-link {
+  transform: scaleX(1);
+  transition: transform 280ms ease-out;
+  transition-delay: calc(var(--i) * 90ms + 40ms);
+}
+
+.lifecycle.is-in .lifecycle-caption {
+  opacity: 1;
+  transition: opacity 280ms ease-out;
+  transition-delay: 820ms;
+}
+
+.lifecycle.is-in .lifecycle-chip.is-current {
+  animation: lifecycle-pulse 1.6s ease-in-out 2;
+  animation-delay: calc(var(--i) * 90ms + 280ms);
+}
+
+@keyframes lifecycle-pulse {
+  50% {
+    box-shadow: 0 0 0 6px rgb(91 110 255 / 0.16);
+  }
 }
 
 .bg-grid {
